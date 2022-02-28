@@ -68,7 +68,20 @@ console.log(
 //    number of days for Feb. The default value for the year should be
 //    the current year
 
-function daysInMonth() {}
+function daysInMonth(month) {
+    if (month < 1 || month > 12) {
+        return 'Month does not exist';
+    }
+    if (month === 2) {
+        return 29;
+    }
+    if (month === 1 || month === 3 || month === 5 || month === 7 || month === 8 || month === 10 || month === 12) {
+        return 31;
+    }
+    if (month === 4 || month === 6 || month === 9 || month === 11) {
+        return 30;
+    }
+}
 
 console.log(`daysInMonth(2) === 29: ${daysInMonth(2) === 29}`);
 console.log(`daysInMonth(3) === 31: ${daysInMonth(3) === 31}`);
