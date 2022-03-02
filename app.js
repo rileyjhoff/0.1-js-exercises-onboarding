@@ -6,20 +6,31 @@
 // a number of minutes as an argument and returns
 // the number of seconds
 
-function convertToSeconds() {}
-
+function convertToSeconds(minutes) {
+    return minutes * 60;
+}
 console.log(`convertToSeconds(10) === 600 : ${convertToSeconds(10) === 600}`);
 
 // 2. areaOfTriangle
 // Write a function called areaOfTriangle that takes in the base and height
 // of a triangle and returns its area
-function areaOfTriangle() {}
+
+function areaOfTriangle(base, height) {
+    return 1 / 2 * base * height;
+}
 console.log(`areaOfTriangle(5, 10) === 25 : ${areaOfTriangle(5, 10) === 25}`);
 
 // 3. lessThan100
 // Given 2 numbers, return true if their sum is less than 100
 // return false if it is greater than 100
-function lessThan100() {}
+
+function lessThan100(num1, num2) {
+    if (num1 + num2 < 100) {
+        return true;
+    } else {
+        return false;
+    }
+}
 console.log(`lessThan100(5, 10) === true : ${lessThan100(5, 10) === true}`);
 console.log(`lessThan100(100, 10) === false : ${lessThan100(100, 10) === false}`);
 
@@ -28,7 +39,13 @@ console.log(`lessThan100(100, 10) === false : ${lessThan100(100, 10) === false}`
 // that accepts a first_name and last_name as required parameters
 // and a third parameter called middle_name which is optional.
 // The function should return a string with the first, middle and last names
-function getFormattedName() {}
+
+function getFormattedName(first_name, last_name, middle_name) {
+    if (middle_name) {
+        return first_name + ' ' + middle_name + ' ' + last_name;
+    }
+    return first_name + ' ' + last_name;
+}
 console.log(
     `getFormattedName('Ruth', 'Ginsburg') === 'Ruth Ginsburg': ${
         getFormattedName('Ruth', 'Ginsburg') === 'Ruth Ginsburg'
@@ -50,7 +67,25 @@ console.log(
 //    that checks if the year is a leap year, and returns the correct
 //    number of days for Feb. The default value for the year should be
 //    the current year
-function daysInMonth() {}
+
+function daysInMonth(month, year) {
+    if (month < 1 || month > 12) {
+        return 'Month does not exist';
+    }
+    if (month === 2 && year) {
+        return year % 4 === 0 ? 29 : 28;
+    }
+    if (month === 2) {
+        return 29;
+    }
+    if (month === 1 || month === 3 || month === 5 || month === 7 || month === 8 || month === 10 || month === 12) {
+        return 31;
+    }
+    if (month === 4 || month === 6 || month === 9 || month === 11) {
+        return 30;
+    }
+}
+
 console.log(`daysInMonth(2) === 29: ${daysInMonth(2) === 29}`);
 console.log(`daysInMonth(3) === 31: ${daysInMonth(3) === 31}`);
 console.log(`daysInMonth(11) === 30: ${daysInMonth(11) === 30}`);
